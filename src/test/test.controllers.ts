@@ -7,9 +7,9 @@ export class TestController {
   constructor(private readonly testService: TestService) {}
 
   @Get()
-  async findAll() {
-    const users = await this.testService.findAll();
-  console.log('Fetched users:', users);
-  return users;
+   findAll() {
+    console.log("tessssssssssssssssssst",this.testService.findAll());
+   return this.testService.findAll();
+ 
   }
 }

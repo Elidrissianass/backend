@@ -1,4 +1,3 @@
-// user.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -8,11 +7,12 @@ import { Test } from './test.entity';
 export class TestService {
   constructor(
     @InjectRepository(Test)
-    private userRepository: Repository<Test>,
+    private testRepository: Repository<Test>,
   ) {}
 
-  async findAll() {
-  return this.userRepository.find();
+   findAll() {
+    console.log("seeeeeeervice",this.testRepository.find());
+  return this.testRepository.find();
   }
 
 }

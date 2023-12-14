@@ -1,4 +1,3 @@
-// user/user.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TestController } from './test.controllers';
@@ -10,4 +9,4 @@ import { Test } from './test.entity';
   controllers: [TestController],
   providers: [TestService],
 })
-export class UserModule {}
+export class TestModule {}
