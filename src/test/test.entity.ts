@@ -1,10 +1,10 @@
 // user.entity.ts
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
-export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+@Entity('test')
+export class Test {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column()
   name: string;
