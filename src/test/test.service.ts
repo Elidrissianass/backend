@@ -11,10 +11,8 @@ export class TestService {
     private userRepository: Repository<Test>,
   ) {}
 
-  async findAll(): Promise<Test[]> {
-    const users = await this.userRepository.find();
-  console.log('Fetched users from repository:', users);
-  return users;
+  async findAll() {
+  return this.userRepository.find();
   }
 
 }

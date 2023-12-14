@@ -6,9 +6,9 @@ export class Test {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({default : "wissal"})
   name: string;
 
-  @Column()
+  @Column({default : "female"})
   gender: string;
 }
