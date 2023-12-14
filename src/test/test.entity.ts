@@ -11,4 +11,7 @@ export class Test {
 
   @Column({default : "male"})
   gender: string;
+
+  @Column({default: 20})
+  age: number;
 }
