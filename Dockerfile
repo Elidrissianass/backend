@@ -3,7 +3,7 @@ RUN npm install pm2 yarn @nestjs/cli -g --force
 WORKDIR /backend
 COPY package*.json ./
 RUN yarn install --production
-RUN yarn build
 COPY . .
+RUN yarn build
 EXPOSE 3000
 CMD ["yarn","pm2:start:app"]
