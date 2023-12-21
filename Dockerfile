@@ -1,10 +1,10 @@
 FROM node:20-alpine
-
-WORKDIR /app
+RUN npm install pm2 yarn -g
+WORKDIR /backend
 
 COPY . .
 
 RUN yarn
-RUN yarn build
+RUN yarn pm2:deploy:app
 
 CMD [ "yarn","start" ]
