@@ -1,5 +1,5 @@
 FROM node:18
-RUN npm install pm2 yarn -g
+RUN npm install pm2 yarn -g --force
 WORKDIR /backend
 COPY package*.json ./
 RUN yarn
