@@ -18,9 +18,9 @@ jobs:
       - name: Build and push Docker image
         run: |
           sudo docker build -t backend-dev .
-          sudo docker tag backend-dev:latest docker.io/anassvo/backend-dev:latest
+          sudo docker tag backend-dev:latest ${{ secrets.DOCKER_REPO_URL_DEV }}/backend-dev:latest
           sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          sudo docker push docker.io/anassvo/backend-dev:latest
+          sudo docker push ${{ secrets.DOCKER_REPO_URL_DEV }}/backend-dev:latest
 
       - name: SSH into EC2 instance and deploy
         uses: appleboy/ssh-action@master
@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.MY_EC2_SSH_KEY }}
           script: |
-            sudo docker pull docker.io/anassvo/backend-dev:latest
+            sudo docker pull ${{ secrets.DOCKER_REPO_URL_DEV }}/backend-dev:latest
             sudo docker stop my-node-app || true
             sudo docker rm my-node-app || true
-            sudo docker run -d -p 3000:3000 --name my-node-app docker.io/anassvo/backend-dev:latest
+            sudo docker run -d -p 3000:3000 --name my-node-app ${{ secrets.DOCKER_REPO_URL_DEV }}/backend-dev:latest
