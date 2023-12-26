@@ -23,7 +23,7 @@ jobs:
           sudo docker push ${{ secrets.DOCKER_REPO_URL_DEV }}/backend-dev:latest
 
       - name: SSH into EC2 instance and deploy
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@dev
         with:
           host: ${{ secrets.EC2_HOST_DEV }}
           username: ${{ secrets.EC2_USERNAME }}
