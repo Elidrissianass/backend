@@ -33,3 +33,4 @@ jobs:
             sudo docker stop my-node-app || true
             sudo docker rm my-node-app || true
             sudo docker run -d -p 3000:3000 --name my-node-app ${{ secrets.DOCKER_REPO_URL_DEV }}/backend-dev:latest
+            sudo docker system prune -a
